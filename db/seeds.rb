@@ -5,3 +5,45 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Device.delete_all
+
+dev1 = Device.create!(device_type: "tablet")
+dev2 = Device.create!(device_type: "laptop")
+dev3 = Device.create!(device_type: "mobile cart")
+
+Station.delete_all
+
+station1 = Station.create!(station_name: "ICQA")
+station2 = Station.create!(station_name: "Super Schutes")
+station3 = Station.create!(station_name: "Inbound")
+
+Status.delete_all
+
+status1 = Status.create!(status_level: "In Progress")
+status2 = Status.create!(status_level: "Completed")
+status3 = Status.create!(status_level: "Waiting on response")
+
+Owner.delete_all
+
+owner1 = Owner.create!(user_name: "Chris")
+owner2 = Owner.create!(user_name: "Holly")
+
+User.delete_all
+
+user1 = User.create!(user_name: "Chris")
+user2 = User.create!(user_name: "Aiden")
+user3 = User.create!(user_name: "Holly")
+user4 = User.create!(user_name: "Amelia")
+
+Ticket.delete_all
+
+ticket1 = Ticket.create!(ticket_title: "bad tablet", ticket_details: "tablet will not connect to wifi", owners_id: owner1.id, devices_id: dev1.id, stations_id: station2.id, status_id: status3.id)
+ticket2 = Ticket.create!(ticket_title: "mobile cart missing scanner", ticket_details: "please replace scanner on mobile cart 7", owners_id: owner2.id, devices_id: dev3.id, stations_id: station1.id, status_id: status1.id)
+
+Comment.delete_all
+
+comment1 = Comment.create!(comment: "have you tried turning it off and on again?", tickets_id: ticket1.id, users_id: user1.id)
+comment2 = Comment.create!(comment: "order placed, pending approval", tickets_id: ticket2.id, users_id: user1.id)
+comment3 = Comment.create!(comment: "purchase approved", tickets_id: ticket2.id, users_id: user3.id)
+comment4 = Comment.create!(comment: "do we know how long it will take for the scanner to come in?", tickets_id: ticket2.id, users_id: user2.id)
