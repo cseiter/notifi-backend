@@ -15,6 +15,7 @@ Status.delete_all
 Owner.delete_all
 User.delete_all
 Ticket.delete_all
+Comment.delete_all
 puts "table contents deleted"
 
 puts "populating devices table"
@@ -52,15 +53,11 @@ ticket1 = Ticket.create!(ticket_title: "bad tablet", ticket_details: "tablet wil
 ticket2 = Ticket.create!(ticket_title: "mobile cart missing scanner", ticket_details: "please replace scanner on mobile cart 7", owners_id: owner2.id, devices_id: dev3.id, stations_id: station1.id, statuses_id: status1.id)
 puts "tickets table populated"
 
-=begin Station.delete_all
-
-
-Comment.delete_all
-
+puts "populating comments table"
 comment1 = Comment.create!(comment: "have you tried turning it off and on again?", tickets_id: ticket1.id, users_id: user1.id)
-comment2 = Comment.create!(comment: "order placed, pending approval", tickets_id: ticket2.id, users_id: user1.id)
-comment3 = Comment.create!(comment: "purchase approved", tickets_id: ticket2.id, users_id: user3.id)
-comment4 = Comment.create!(comment: "do we know how long it will take for the scanner to come in?", tickets_id: ticket2.id, users_id: user2.id)
-=end
+#comment2 = Comment.create!(comment: "order placed, pending approval", tickets_id: ticket2.id, users_id: user1.id)
+#comment3 = Comment.create!(comment: "purchase approved", tickets_id: ticket2.id, users_id: user3.id)
+#comment4 = Comment.create!(comment: "do we know how long it will take for the scanner to come in?", tickets_id: ticket2.id, users_id: user2.id)
+puts "comments table populated"
 
 "seeding complete"

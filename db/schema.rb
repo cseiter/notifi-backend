@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2021_10_08_220528) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "users_id"
+    t.bigint "tickets_id"
+    t.index ["tickets_id"], name: "index_comments_on_tickets_id"
     t.index ["users_id"], name: "index_comments_on_users_id"
   end
 
@@ -70,6 +72,7 @@ ActiveRecord::Schema.define(version: 2021_10_08_220528) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "comments", "tickets", column: "tickets_id"
   add_foreign_key "comments", "users", column: "users_id"
   add_foreign_key "tickets", "comments", column: "comments_id"
   add_foreign_key "tickets", "devices", column: "devices_id"
