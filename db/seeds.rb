@@ -14,6 +14,7 @@ Station.delete_all
 Status.delete_all
 Owner.delete_all
 User.delete_all
+Ticket.delete_all
 puts "table contents deleted"
 
 puts "populating devices table"
@@ -46,12 +47,13 @@ user3 = User.create!(user_name: "Holly")
 user4 = User.create!(user_name: "Amelia")
 puts "users table populated"
 
+puts "populating tickets table"
+ticket1 = Ticket.create!(ticket_title: "bad tablet", ticket_details: "tablet will not connect to wifi", owners_id: owner1.id, devices_id: dev1.id, stations_id: station2.id, statuses_id: status3.id)
+ticket2 = Ticket.create!(ticket_title: "mobile cart missing scanner", ticket_details: "please replace scanner on mobile cart 7", owners_id: owner2.id, devices_id: dev3.id, stations_id: station1.id, statuses_id: status1.id)
+puts "tickets table populated"
+
 =begin Station.delete_all
 
-Ticket.delete_all
-
-ticket1 = Ticket.create!(ticket_title: "bad tablet", ticket_details: "tablet will not connect to wifi", owners_id: owner1.id, devices_id: dev1.id, stations_id: station2.id, status_id: status3.id)
-ticket2 = Ticket.create!(ticket_title: "mobile cart missing scanner", ticket_details: "please replace scanner on mobile cart 7", owners_id: owner2.id, devices_id: dev3.id, stations_id: station1.id, status_id: status1.id)
 
 Comment.delete_all
 
