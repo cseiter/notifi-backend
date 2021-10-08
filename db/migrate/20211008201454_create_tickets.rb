@@ -5,9 +5,11 @@ class CreateTickets < ActiveRecord::Migration[6.1]
       t.string :ticket_details
       t.references :device_id
       t.references :owner_id
+      t.references :station_id
       t.timestamps
     end
     add_foreign_key :tickets, :devices, column: :device_id
     add_foreign_key :tickets, :owners, column: :owner_id
+    add_foreign_key :tickets, :stations, column: :station_id
   end
 end
