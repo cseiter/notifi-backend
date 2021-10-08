@@ -10,9 +10,70 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_10_08_220528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comments", force: :cascade do |t|
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "users_id"
+    t.index ["users_id"], name: "index_comments_on_users_id"
+  end
+
+  create_table "devices", force: :cascade do |t|
+    t.string "device_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "owners", force: :cascade do |t|
+    t.string "owner_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "stations", force: :cascade do |t|
+    t.string "station_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string "status_level"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.string "ticket_title"
+    t.string "ticket_details"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "owners_id"
+    t.bigint "devices_id"
+    t.bigint "stations_id"
+    t.bigint "statuses_id"
+    t.bigint "comments_id"
+    t.index ["comments_id"], name: "index_tickets_on_comments_id"
+    t.index ["devices_id"], name: "index_tickets_on_devices_id"
+    t.index ["owners_id"], name: "index_tickets_on_owners_id"
+    t.index ["stations_id"], name: "index_tickets_on_stations_id"
+    t.index ["statuses_id"], name: "index_tickets_on_statuses_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "user_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "comments", "users", column: "users_id"
+  add_foreign_key "tickets", "comments", column: "comments_id"
+  add_foreign_key "tickets", "devices", column: "devices_id"
+  add_foreign_key "tickets", "owners", column: "owners_id"
+  add_foreign_key "tickets", "stations", column: "stations_id"
+  add_foreign_key "tickets", "statuses", column: "statuses_id"
 end
