@@ -12,6 +12,7 @@ puts "deleting existing table contents"
 Device.delete_all
 Station.delete_all
 Status.delete_all
+Owner.delete_all
 puts "table contents deleted"
 
 puts "populating devices table"
@@ -32,14 +33,14 @@ status2 = Status.create!(status_level: "Completed")
 status3 = Status.create!(status_level: "Waiting on response")
 puts "statuses table populated"
 
+puts "populating owners table"
+owner1 = Owner.create!(owner_name: "Chris")
+owner2 = Owner.create!(owner_name: "Holly")
+puts "owners table populated"
+
 =begin Station.delete_all
 
 
-
-Owner.delete_all
-
-owner1 = Owner.create!(user_name: "Chris")
-owner2 = Owner.create!(user_name: "Holly")
 
 User.delete_all
 
