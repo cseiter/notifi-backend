@@ -11,26 +11,30 @@ puts "beginning seed"
 puts "deleting existing table contents"
 Device.delete_all
 Station.delete_all
+Status.delete_all
 puts "table contents deleted"
 
-puts "populating device table"
+puts "populating devices table"
 dev1 = Device.create!(device_type: "tablet")
 dev2 = Device.create!(device_type: "laptop")
 dev3 = Device.create!(device_type: "mobile cart")
 puts "device table populated"
 
-puts "populating station table"
+puts "populating stations table"
 station1 = Station.create!(station_type: "ICQA")
 station2 = Station.create!(station_type: "Super Schutes")
 station3 = Station.create!(station_type: "Inbound")
 puts "station table populated"
 
-=begin Station.delete_all
-Status.delete_all
-
+puts "populating statuses table"
 status1 = Status.create!(status_level: "In Progress")
 status2 = Status.create!(status_level: "Completed")
 status3 = Status.create!(status_level: "Waiting on response")
+puts "statuses table populated"
+
+=begin Station.delete_all
+
+
 
 Owner.delete_all
 
