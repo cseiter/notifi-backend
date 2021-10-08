@@ -13,6 +13,7 @@ Device.delete_all
 Station.delete_all
 Status.delete_all
 Owner.delete_all
+User.delete_all
 puts "table contents deleted"
 
 puts "populating devices table"
@@ -38,16 +39,14 @@ owner1 = Owner.create!(owner_name: "Chris")
 owner2 = Owner.create!(owner_name: "Holly")
 puts "owners table populated"
 
-=begin Station.delete_all
-
-
-
-User.delete_all
-
+puts "populating users table"
 user1 = User.create!(user_name: "Chris")
 user2 = User.create!(user_name: "Aiden")
 user3 = User.create!(user_name: "Holly")
 user4 = User.create!(user_name: "Amelia")
+puts "users table populated"
+
+=begin Station.delete_all
 
 Ticket.delete_all
 
