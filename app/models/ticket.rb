@@ -1,5 +1,7 @@
 class Ticket < ApplicationRecord
-    has_one :device_id
-    has_one :owner_id
-    has_one :station_id
+    has_one :device
+    has_one :owner
+    has_one :station
+    has_one :status
+    has_many :tickets
 end
