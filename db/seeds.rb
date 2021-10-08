@@ -6,13 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Device.delete_all
+puts "beginning seed"
 
+puts "deleting existing table contents"
+Device.delete_all
+puts "table contents deleted"
+
+puts "populating device table"
 dev1 = Device.create!(device_type: "tablet")
 dev2 = Device.create!(device_type: "laptop")
 dev3 = Device.create!(device_type: "mobile cart")
+puts "device table populated"
 
-Station.delete_all
+=begin Station.delete_all
 
 station1 = Station.create!(station_name: "ICQA")
 station2 = Station.create!(station_name: "Super Schutes")
@@ -47,3 +53,6 @@ comment1 = Comment.create!(comment: "have you tried turning it off and on again?
 comment2 = Comment.create!(comment: "order placed, pending approval", tickets_id: ticket2.id, users_id: user1.id)
 comment3 = Comment.create!(comment: "purchase approved", tickets_id: ticket2.id, users_id: user3.id)
 comment4 = Comment.create!(comment: "do we know how long it will take for the scanner to come in?", tickets_id: ticket2.id, users_id: user2.id)
+=end
+
+"seeding complete"
