@@ -24,7 +24,7 @@ class StatusesController < ApplicationController
         end
     end       
 
-    def owners_params
+    def status_params
         params.permit(:status_level)
     end
 end
