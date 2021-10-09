@@ -14,6 +14,15 @@ class TicketsController < ApplicationController
         render json: ticket, status: :created
     end
 
+    def update
+        ticket = Ticket.find_by(id: params[:id])
+        if ticket
+            ticket.update(ticket_params)
+            render json: ticket
+        else
+            render json: {error: "Ticket not found"}, status: :not_found
+        end
+    end
     def destroy
         ticket = Ticket.find_by(id: params[:id])
         if ticket
