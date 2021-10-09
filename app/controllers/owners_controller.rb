@@ -10,7 +10,7 @@ class OwnersController < ApplicationController
     end
 
     def create
-        owner = Owner.create!(owner_params)
+        owner = Owner.create!(owners_params)
         render json: owner, status: :created
     end
 
