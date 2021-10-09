@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :tickets
+  resources :tickets do
+    resources :comments
+  end
   resources :owners
   resources :users
   resources :comments

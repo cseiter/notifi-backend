@@ -1,7 +1,14 @@
 class CommentsController < ApplicationController
     def index
-        comments = Comment.all
-        render json: comments
+#        comments = Comment.all
+#        render json: comments
+        if params[:ticket_id]
+            ticket = Ticket.find(params[:ticket_id])
+            comments = ticket.comments
+        else
+            tickets = Ticket.all
+        end
+        render json: comments, include: :ticket
     end
 
     def show
