@@ -54,10 +54,10 @@ ticket2 = Ticket.create!(ticket_title: "mobile cart missing scanner", ticket_det
 puts "tickets table populated"
 
 puts "populating comments table"
-comment1 = Comment.create!(comment: "have you tried turning it off and on again?", tickets_id: ticket1.id, users_id: user1.id)
-#comment2 = Comment.create!(comment: "order placed, pending approval", tickets_id: ticket2.id, users_id: user1.id)
-#comment3 = Comment.create!(comment: "purchase approved", tickets_id: ticket2.id, users_id: user3.id)
-#comment4 = Comment.create!(comment: "do we know how long it will take for the scanner to come in?", tickets_id: ticket2.id, users_id: user2.id)
+comment1 = Comment.create!(comment: "have you tried turning it off and on again?", ticket_id: ticket1.id, user_id: user1.id)
+comment2 = Comment.create!(comment: "order placed, pending approval", ticket_id: ticket2.id, user_id: user1.id)
+comment3 = Comment.create!(comment: "purchase approved", ticket_id: ticket2.id, user_id: user3.id)
+comment4 = Comment.create!(comment: "do we know how long it will take for the scanner to come in?", ticket_id: ticket2.id, user_id: user2.id)
 puts "comments table populated"
 
 "seeding complete"
